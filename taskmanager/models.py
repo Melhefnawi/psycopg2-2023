@@ -1,7 +1,8 @@
 from taskmanager import db
 
 class Category(db.Model):
-    id= db.column(db.Integer, primary_key=True)
+
+    id = db.column(db.Integer, primary_key=True)
     category_name = db.column(db.String(25), unique=True, nullable=False)
     tasks = db.relationship("Task", backref="category",
      cascade="all,delete",lazy=True)
@@ -14,7 +15,7 @@ class Category(db.Model):
 class Task(db.Model):
 
     id = db.column(db.Integer, primary_key=True)
-    task_name= db.column(db.String(50), unique = True, nullable = False)
+    task_name = db.column(db.String(50), unique = True, nullable = False)
     task_description = db.column(db.Text, nullable=False)
     is_urgent= db.column(db.Boolean, default = False, nullable=False)
     due_date = DB.column(db.Date, nullable=Fale)
